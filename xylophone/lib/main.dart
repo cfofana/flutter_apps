@@ -13,23 +13,22 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 
-  Widget buildKey() {
-    Expanded(
+  Expanded buildKey(int fileNumber, int keyColor) {
+    return Expanded(
       child: FlatButton(
-        color: Color(0xff355070),
+        color: Color(keyColor),
         onPressed: () {
-          playSound(1);
+          playSound(fileNumber);
         },
       ),
     );
   }
 
-//color: Color(0xff6D597A),
-//color: Color(0xffB56576),
-//  color: Color(0xffE56B6F),
-  //color: Color(0xffEAAC8B),
-  //color: Color(0xff843b62),
-  //color: Color(0xff621940),
+//color: Color(),
+//  color: Color(),
+  //color: Color(),
+  //color: Color(),
+  //color: Color(),
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,13 +38,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
+              buildKey(1, 0xff355070),
+              buildKey(2, 0xff6D597A),
+              buildKey(3, 0xffB56576),
+              buildKey(4, 0xffE56B6F),
+              buildKey(5, 0xffEAAC8B),
+              buildKey(6, 0xff843b62),
+              buildKey(7, 0xff621940),
             ],
           ),
         ),
