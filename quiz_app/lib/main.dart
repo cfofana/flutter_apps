@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
+import 'quiz_brain.dart';
 
 void main() => runApp(Quiz());
 
@@ -35,12 +37,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-  List<String> questions = [
-    'You can lead a cow down the stairs but not up?',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.'
-  ];
-  int questionNumber = 0;
+  QuizBrain quizBrain = QuizBrain();
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +49,7 @@ class _QuizPageState extends State<QuizPage> {
           flex: 3,
           child: Center(
             child: Text(
-              questions[questionNumber],
+              quizBrain.getQuestionText(quizBrain.getQuestionNumber()),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 25,
@@ -73,11 +70,15 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 // they picked true
                 setState(() {
-                  if (questionNumber <= 2) {
-                    questionNumber++;
+                  bool correctAnswer = quizBrain
+                      .getQuestionAnswer(quizBrain.getQuestionNumber());
+
+                  if (correctAnswer == true) {
+                    print("You got it right.");
                   } else {
-                    print('You reached the end.');
+                    print("You got it wrong.");
                   }
+                  quizBrain.nextQuestion();
                 });
               },
               child: Text("True"),
@@ -96,12 +97,14 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //they picked false
                 setState(() {
-                  scoreKeeper.add(
-                    Icon(
-                      Icons.check,
-                      color: Colors.red,
-                    ),
-                  );
+                  bool correctAnswer = quizBrain
+                      .getQuestionAnswer(quizBrain.getQuestionNumber());
+                  if (correctAnswer == false) {
+                    print("You got it right.");
+                  } else {
+                    print("You got it wrong.");
+                  }
+                  quizBrain.nextQuestion();
                 });
               },
               child: Text('False'),
