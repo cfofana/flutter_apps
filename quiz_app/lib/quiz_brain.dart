@@ -1,9 +1,7 @@
 import 'question.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
-  bool reachedEnd = false;
   List<Question> _questionBank = [
     Question('1. Some cats are actually allergic to humans', true),
     Question('2. You can lead a cow down stairs but not up stairs.', false),
@@ -35,12 +33,21 @@ class QuizBrain {
 
   void nextQuestion() {
     if (_questionNumber < _questionBank.length - 1) {
-      reachedEnd = false;
       _questionNumber++;
     } else {
-      reachedEnd = true;
+      reachedEnd();
       _questionNumber = 0;
     }
+  }
+
+  bool reachedEnd() {
+    bool end = false;
+    if (_questionNumber == _questionBank.length - 1) {
+      end = true;
+    } else {
+      end = false;
+    }
+    return end;
   }
 
   int getQuestionNumber() {

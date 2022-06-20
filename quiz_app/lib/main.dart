@@ -10,7 +10,7 @@ class Quiz extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xffA8A9AD),
+          backgroundColor: Colors.black,
           title: Center(child: Text('Quiz')),
         ),
         body: Container(
@@ -40,9 +40,10 @@ class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
   void checkCorrectAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getQuestionAnswer();
-    // check to see if we reached end of quiz
     setState(() {
-      if (quizBrain.reachedEnd) {
+      print(quizBrain.reachedEnd());
+      // check to see if we reached end of quiz
+      if (quizBrain.reachedEnd()) {
         Alert(
                 context: context,
                 title: "Finished!",
@@ -51,12 +52,10 @@ class _QuizPageState extends State<QuizPage> {
         scoreKeeper.clear();
       } else {
         if (correctAnswer == userAnswer) {
-          print(quizBrain.getQuestionNumber());
           scoreKeeper.add(
             Icon(Icons.check, color: Colors.green),
           );
         } else {
-          print(quizBrain.getQuestionNumber());
           scoreKeeper.add(
             Icon(Icons.close, color: Colors.red),
           );
