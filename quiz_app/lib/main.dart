@@ -16,7 +16,7 @@ class Quiz extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('../images/watercolor_background.jpg'),
+              image: AssetImage('../images/abstract_blue_background.jpg'),
               alignment: Alignment.center,
               fit: BoxFit.cover,
             ),
@@ -125,3 +125,5 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 }
+
+//TO DO: display two buttons in alert, one to restart, another to route to new page saying goodbye
