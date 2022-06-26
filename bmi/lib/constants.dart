@@ -17,4 +17,16 @@ const kCalculateButtonStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
 );
+const kResultsHeaderTextStyle = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+  color: Color(0xFF24D876),
+);
+const kResultsBMITextStyle = TextStyle(
+  fontSize: 90.0,
+  fontWeight: FontWeight.bold,
+);
+const kResultsBodyTextStyle = TextStyle(
+  fontSize: 22.0,
+);
 const kIconSize = 20.0;
