@@ -127,3 +127,4 @@ class _QuizPageState extends State<QuizPage> {
 }
 
 //TO DO: display two buttons in alert, one to restart, another to route to new page saying goodbye
+// TODO: image attribution

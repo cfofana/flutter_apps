@@ -4,10 +4,14 @@ import '../constants.dart';
 import 'input_page.dart';
 import '../components/bottom_button.dart';
 
-int height = (heightInFt * 12) + heightInInches;
-double bmi = (weight * 703).toDouble() / (height * height).toDouble();
-
 class ResultsPage extends StatelessWidget {
+  final String? bmiResult;
+  final String? resultText;
+  final String? interpretation;
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.interpretation});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,23 +35,17 @@ class ResultsPage extends StatelessWidget {
             child: ReusableCard(
               cardColor: kActiveCardColor,
               cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Expanded(
-                    child:
-                        Text('Normal Weight', style: kResultsHeaderTextStyle),
+                  Text(resultText!.toUpperCase(),
+                      style: kResultsHeaderTextStyle),
+                  Text(
+                    bmiResult!,
+                    style: kResultsBMITextStyle,
                   ),
-                  Expanded(
-                    child: Text(
-                      bmi.toStringAsFixed(1),
-                      style: kResultsBMITextStyle,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                        'You have a normal BMI. Keep doing what you are doing.',
-                        style: kResultsBodyTextStyle),
-                  ),
+                  Text(interpretation!,
+                      textAlign: TextAlign.center,
+                      style: kResultsBodyTextStyle),
                 ],
               ),
             ),
