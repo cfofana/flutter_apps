@@ -7,6 +7,7 @@ import 'package:share_plus/share_plus.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   final PendingDynamicLinkData? initialLink =
       await FirebaseDynamicLinks.instance.getInitialLink();
 
@@ -46,16 +47,16 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             children: [
-              TextButton(
-                style: TextButton.styleFrom(primary: Colors.green),
-                onPressed: () {},
-                child: Row(
-                  children: [
-                    Icon(Icons.share),
-                    Text('Share with friends'),
-                  ],
-                ),
-              ),
+              // TextButton(
+              //   style: TextButton.styleFrom(primary: Colors.green),
+              //   onPressed: () {},
+              //   child: Row(
+              //     children: [
+              //       Icon(Icons.share),
+              //       Text('Share with friends'),
+              //     ],
+              //   ),
+              // ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.green),
                 onPressed: () async {
