@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Screen0 extends StatelessWidget {
   @override
@@ -11,6 +13,20 @@ class Screen0 extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
+            TextButton(
+              onPressed: launchPage,
+              child: Text('Click me!'),
+            ),
+            Link(
+              uri: Uri.parse('https://flutter.dev'),
+              target: LinkTarget.blank,
+              builder: (context, followLink) {
+                return ElevatedButton(
+                  child: Text('Hello'),
+                  onPressed: followLink,
+                );
+              },
+            ),
             RaisedButton(
               color: Colors.red,
               child: Text('Go To Screen 1'),
@@ -30,4 +46,11 @@ class Screen0 extends StatelessWidget {
       ),
     );
   }
+}
+
+void launchPage() {
+  launchUrl(
+    Uri.parse('https://google.com'),
+    mode: LaunchMode.externalApplication,
+  );
 }

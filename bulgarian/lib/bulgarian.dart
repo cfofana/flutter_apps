@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 //import 'dart:html' as html;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,6 +40,19 @@ class Bulgarian extends StatelessWidget {
         ),
         child: Column(
           children: [
+            Link(
+              target: LinkTarget.blank,
+              uri: Uri.parse("https://codepur.dev"),
+              builder: (context, followLink) {
+                return ElevatedButton(
+                  onPressed: () {
+                    print('link prddrf');
+                    followLink;
+                  },
+                  child: Text('fdkj'),
+                );
+              },
+            ),
             TextButton(
               onPressed: () {
                 String url = 'https://flutter.dev';
