@@ -77,7 +77,7 @@ class Bulgarian extends StatelessWidget {
 }
 
 //TODO
-// use List Widget
+// use List Widget DONE
 // create list DONE
 // image attribution
 // put flag in app bar DONE
