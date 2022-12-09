@@ -32,7 +32,9 @@ class MyApp extends StatelessWidget {
               child: Text('Flutter Demo Home Page'),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                print('ive been cllicked');
+              },
               child: Text("Click"),
             ),
           ],
